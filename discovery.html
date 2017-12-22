@@ -1,0 +1,55 @@
+<!--
+  discovery.html - This file is part of remoteDBdiscovery.
+  
+  remoteDBdiscovery is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
+
+  remoteDBdiscovery is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  --------
+  Copyright (c) 2017 Marco Sillano.  All right reserved.
+-->
+<html><head>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"> </head>
+<body>
+    <h1> Discovery protocols for <code>remotesDB</code> </h1>
+     <div class='note'>
+        
+           
+       <i>Here the workflow to process a new unknown remote control, using some CRUD pages. You can do all required operations starting from the <b><a href = 'crud_irp_devrem.php'><code>discovery</code> page</a></b>.</i><br><br> You must fallow the steps:
+       <ol>
+       <li> You <b><a href = 'crud_irp_remotes.php'>add a new record</a></b> for the remote control filling all fields with required data. (You can also click [<a href = 'crud_irp_remotes.php'>add new</a>] idremote.)<br><br></li>
+       <li> Now you must  <b><a href = 'crud_irp_devices.php'>add a device</a></b>, real or virtual. You do not need any real device to test a new remote control, but a device is required by <code><b>remotesDB</b></code> structure. (You can also click [<a href = 'crud_irp_devices.php'>add new</a>] iddevice.)<br><br></li>
+	   <li> <b><a href = 'crud_irp_protocols.php'>Add also an 'unknownXX' protocol</a></b> (or any name you like) for the new control and do not fill the IRP field. (You can also click [<a href = 'crud_irp_protocols.php'>add new</a>] idprotocol.)<br><br></li>
+       <li>Associate the remote control, the new device and the unknown protocol adding a <b><a href = 'crud_irp_devrem.php'>new record to <code>irp_devrem</code></a></b>.  <i>code</i> is mandatory, use '0' as default , or a code starting with an alpha char (A..Z). Use 'A' as default <i>mode1</i>, or set the modes that the device can accept. <br><br></li>
+       <li> Now you can complete the remote control infos. You can use the <b><a href = 'crud_irp_devrem.php'>EXPORT SHEET</a></b> button.<br> </li><ul>
+        <li>You must edit the 'sheet' file using a text editor (e.g. Notepad++).<br> Add all buttons ( NAME, ROW, COL and MODE). See as example the controls in demo <code>remotesDB</code>.
+		<li>Keep attention to key names, use (where possible) only  <b><a href = 'crud_irp_actions.php'>names in <code>irp_actions</code></a></b>.</li>
+		<li>If you do not define &quot;modes&quot; on remote control record, use the default value 'A' for all keys.</li>
+		<li>Then do "IMPORT SHEET" to import the data from SHEET back into <code>remotesDB</code>.
+        <li>You can redo EXPORT/edit/IMPORT  cycle until you are satisfied with the result. Because new sheets are without stream informations, do not use the EXECUTE button. Do not change name or dir to 'sheet' files.
+		<br><i>You can use the SHEET files as backup. In this case, better if you zip the files, to not overwrite it.</i></li></ul><br>
+       
+        <li> After defined the remote control layout, you can capture 5 to 10 IR streams, using <a href = 'crud_irp_devrem.php'><b>RAW CAPTURE</b></a> tool. <br><br></li>
+		<li> Verify the captured streams, using the <a href = 'crud_irp_devrem.php'><b>EXECUTE</b></a> button.  <br><br></li>
+        <li>Finally you can use <a href = 'crud_irp_devrem.php'><b>DISCOVERY PROTOCOL</b></a> to analyse the captured streams. You must choose 2 RAW from the new protocol and the tool will try to decode the RAWs using only compatible known protocols. Repeat the test many times with different RAWs.<br><br></li>
+		<li>If you lucky and if you are sure about the new protocol identification, you can change it, from <i>unknownXX</i> to true name.<br><i>As example, 'unknow01' (in original demo) is really 'NEC1_16', because: 1) uses dittos (that excludes NEC2, Pioneer) 2) uses D and ~D (and not D, S like NEC1). </i><br><br></li>
+		<li>Last, you use <a href = 'crud_irp_devrem.php'><b>verify EXECUTE</b></a>, to verify and link all  keys, and <a href = 'crud_irp_devrem.php'><b>EXPORT SHEET</b></a> as backup.</li>
+       </ol>       
+    </div>    
+    <BR>
+	<hr>
+	<script src="footer.js"></script> 
+    <br>
+	<hr>
+  <br>
+</body>
+</html>

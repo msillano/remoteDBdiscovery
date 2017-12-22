@@ -1,0 +1,11 @@
+# How the package is useful ..
+
+This package will make your programming easy where you just need CRUD operations.
+
+# What the package will do ..
+
+The program will take a Table Name and Fields Name of the table as argument then provide all CRUD operations for the table.
+
+# How to use ..
+
+Please follow the example file crud_example.php

@@ -1,0 +1,70 @@
+<!--
+  index.html - This file is part of remoteDBdiscovery.
+  
+  remoteDBdiscovery is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
+
+  remoteDBdiscovery is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  --------
+  Copyright (c) 2017 Marco Sillano.  All right reserved.
+-->
+<html><head>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"> </head>
+<body>
+    <h1> Discovery protocols for <code>remotesDB</code> </h1>
+    <div class='note'> This extension of <code><b>remotesDB</b></code> is for the management of new 
+	     remote controls. It adds to <code>remotesDB</code>:<ul>
+		 <li> 100+ protocols with IRP, in table <code>irp_protocols</code>, and a new table <code>irp_dataprotocols</code> with statistical data.</li>
+		 <li> A complete device type list to <code>irp_devtypes. </code></li>
+		 <li> A tool to test any of 100+ protocols with any data: HEX or dataset.</li>		 
+		 <li> CRUD (Create, Read, Update, Delete) library, that allows fast and easy creation of new management pages for <code>remotesDB</code> tables.</li>
+		 <li> A complete workflow  for add new remote controls to <code>remotesDB</code></li>
+		 </ul>
+	
+		 Installation:<br>
+		<i> Precondition: last version (ver. 1.3, from http:/... ) of <code>phpIRPlib</code> and <code>remoteDB</code> installed and working</i>.
+        <ul>		    
+		    <li>Copy all files on <code>www/remoteDBdiscovery</code> and updates on <code>phpIRPlib</code> and <code>remoteDB</code>.
+            <li>Import <code>full_protocols.sql</code>: It  will add 100+ protocols to <code>remotesDB</code>.
+            <li>Import <code>irp_protocoldata.sql</code>: It will add a new table to  <code>remotesDB</code>.
+            <li>Import <code>view_protocoldata.sql</code>: It will add a new view to  <code>remotesDB</code>.
+        </ul>
+      </div>
+    <hr>
+    <div class='note'>
+        <h3>New management tools:</h3> 
+           Using the simple <A href="test_protocols.php">Test <code>protocols</code>.</A> you can test the 100+ 
+		   protocols now in <code>remotesDB</code> using any data and get RAW stream.<br><br>
+		   
+		   The tool <A href="test_dataprotocols.php"> Verify/update <code>irp_protocoldata</code></A> automatizes the management of <code>irp_protocoldata</code> table. Use it in case of modified or new IRP<br><br>
+       
+		   <A href="discovery.html">Workflow for new controls</A> helps you to add a new IR remote control to 
+		   <code>remotesDB</code>.
+		</div>
+    <DL>
+       <DT><A href="test_protocols.php">Test <code>protocols</code>.</A></DT>
+        <DD>You can insert data as <b>HEX</b> ('3A3B00F') or as <b>data-set</b> ('{D=35, F=0x2A}') and repetition number [1..4].<br>
+		   This tool encodes/decodes the RAW stream giving you some statistics.
+        <br><br>
+        <DT><A href="test_dataprotocols.php"> Verify/update <code>irp_protocoldata</code></A></DT>
+        <DD>For new protocols or in case of IRP changes. <br>
+        This tool don't create new records, only updates existing records in <code>irp_protocoldata</code> table.<br>
+		   For a new protocol, you must <a href='crud_irp_protocoldata.php'>create a new record</a> on <code>irp_protocoldata</code> table, and
+		   set the fields: <code>idprotocol, base_time, coding</code>, before the use of this tool.
+        </DL><br>
+	<hr>
+	<script src="footer.js"></script> 
+    <br>
+	<hr>
+  <br>
+</body>
+</html>
