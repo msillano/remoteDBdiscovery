@@ -25,7 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Struttura della tabella `protocol_data`
 --
 
-CREATE TABLE IF NOT EXISTS `protocol_data` (
+CREATE TABLE IF NOT EXISTS `irp_protocoldata` (
   `idprotocol` int(11) NOT NULL,
   `base_time` int(6) default NULL,
   `coding` char(30) default NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `protocol_data` (
 -- Dump dei dati per la tabella `protocol_data`
 --
 
-INSERT INTO `protocol_data` (`idprotocol`, `base_time`, `coding`, `min`, `MAX`, `len00`, `rawMicros00`, `len55`, `rawMicros55`, `lenAA`, `rawMicrosAA`, `lenFF`, `rawMicrosFF`) VALUES
+INSERT INTO `irp_protocoldata` (`idprotocol`, `base_time`, `coding`, `min`, `MAX`, `len00`, `rawMicros00`, `len55`, `rawMicros55`, `lenAA`, `rawMicrosAA`, `lenFF`, `rawMicrosFF`) VALUES
 (20, 895, 'VARIABLE PHASE', 895, 1790, 26, 12530, 16, 7160, 16, 7160, 28, 14320),
 (21, 840, 'ASYNC', 840, 8400, 2, 0, 10, 0, 8, 0, 2, 0),
 (132, 840, 'ASYNC', 840, 8400, 4, 7560, 20, 7560, 16, 7560, 4, 7560),
