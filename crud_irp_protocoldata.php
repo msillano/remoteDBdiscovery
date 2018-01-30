@@ -51,7 +51,7 @@ function crud_get_input($field){
           $code = crudClass::make_select($field, "SELECT irp_protocols.idprotocol, concat(irp_protocols.idprotocol,': ',name) FROM irp_protocols LEFT JOIN irp_protocoldata ON irp_protocols.idprotocol = irp_protocoldata.idprotocol WHERE irp_protocoldata.idprotocol IS NULL AND IRP IS NOT NULL ORDER BY name") ;
          }      
   if ($field == 'coding'){
-          $code = make_select4list($field,"VARIABLE SPACE,VARIABLE PHASE,VARIABLE MARK,VARIABLE MARK SPACE,ASYNC",'VARIABLE SPACE');
+          $code = crudClass::make_select4list($field,"VARIABLE SPACE,VARIABLE PHASE,VARIABLE MARK,VARIABLE MARK SPACE,ASYNC",'VARIABLE SPACE');
           }      
   return $code;
 }
